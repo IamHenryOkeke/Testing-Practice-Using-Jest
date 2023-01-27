@@ -1,17 +1,16 @@
-function caesarCipher(str, key) {
-    let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-    let result = "";
-    let string = str.toLowerCase();
-    for (let i = 0; i < string.length; i++) {
-        if (string[i] !== " ") {
-            let index = alphabet.indexOf(string[i]);
-            result += alphabet[(index + key) % 26];
-        } else {
-            result += " ";
-        }
+function caeserCipher(str, key) {
+    const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    const convertedStr = str.toLowerCase()
+    let encryptedString = "";
+    for (let i = 0; i < convertedStr.length; i++) {
+        convertedStr[i] === " " ?
+            encryptedString += " " :
+            encryptedString += alphabet[((alphabet.indexOf(convertedStr[i])) + key) % 26]
     }
-
-    return result;
+    return encryptedString;
 }
 
-module.exports = caesarCipher;
+console.log(caeserCipher("cat iz here", 1))
+
+
+module.exports = caeserCipher;
